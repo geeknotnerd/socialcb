@@ -27,7 +27,7 @@
 	<!-- <bean id="userIdSource" class="org.springframework.social.security.AuthenticationNameUserIdSource" 
 		/> -->
 	<bean id="connectController"
-		class="org.springframework.social.connect.web.ConnectController"
+		class="com.socialcb.connect.CustomConnectController"
 		autowire="constructor" />
 
 	<!-- <property name="connectInterceptors"> <list> <bean class="org.springframework.social.showcase.facebook.PostToWallAfterConnectInterceptor" 

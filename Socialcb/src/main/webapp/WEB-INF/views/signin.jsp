@@ -5,7 +5,7 @@
 <%@ taglib uri="http://www.springframework.org/spring-social/facebook/tags" prefix="facebook" %>
 <%@ page session="false" %>
 
-<form id="signin" action="<c:url value="/signin/authenticate" />" method="post">
+<form id="signin" action="<c:url value="/signin" />" method="post">
 	<div class="formInfo">
   		<c:if test="${param.error eq 'bad_credentials'}">
   		<div class="error">
