@@ -232,7 +232,15 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>3.2.4.RELEASE</version>
 		</dependency>
+
+		<!-- Spring mongo -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+			<version>1.3.2.RELEASE</version>
+		</dependency>
 	</dependencies>
+
 	<repositories>
 		<repository>
 			<id>org.springframework.maven.release</id>
