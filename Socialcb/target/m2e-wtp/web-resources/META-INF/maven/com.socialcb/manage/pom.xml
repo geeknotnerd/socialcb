@@ -7,7 +7,7 @@
 	<name>Socialcb</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
-	
+
 	<properties>
 		<java-version>1.6</java-version>
 		<org.springframework.social-version>1.1.0.BUILD-SNAPSHOT</org.springframework.social-version>
@@ -29,7 +29,7 @@
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
-				 </exclusion>
+				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -66,57 +66,57 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
 			<version>${org.springframework.security-version}</version>
-		</dependency>		
+		</dependency>
 		<dependency>
-		    <groupId>org.springframework.social</groupId>
-		    <artifactId>spring-social-core</artifactId>
-	        <version>${org.springframework.social-version}</version>
-	    </dependency>
+			<groupId>org.springframework.social</groupId>
+			<artifactId>spring-social-core</artifactId>
+			<version>${org.springframework.social-version}</version>
+		</dependency>
 		<dependency>
-		    <groupId>org.springframework.social</groupId>
-		    <artifactId>spring-social-facebook</artifactId>
-	        <version>${org.springframework.social.facebook-version}</version>
-	    </dependency>
+			<groupId>org.springframework.social</groupId>
+			<artifactId>spring-social-facebook</artifactId>
+			<version>${org.springframework.social.facebook-version}</version>
+		</dependency>
 		<dependency>
-		    <groupId>org.springframework.social</groupId>
-		    <artifactId>spring-social-facebook-web</artifactId>
-	        <version>${org.springframework.social.facebook-version}</version>
-	    </dependency>
+			<groupId>org.springframework.social</groupId>
+			<artifactId>spring-social-facebook-web</artifactId>
+			<version>${org.springframework.social.facebook-version}</version>
+		</dependency>
 		<dependency>
-		    <groupId>org.springframework.social</groupId>
-		    <artifactId>spring-social-twitter</artifactId>
-	        <version>${org.springframework.social.twitter-version}</version>
-	    </dependency>
+			<groupId>org.springframework.social</groupId>
+			<artifactId>spring-social-twitter</artifactId>
+			<version>${org.springframework.social.twitter-version}</version>
+		</dependency>
 		<dependency>
-		    <groupId>org.springframework.social</groupId>
-		    <artifactId>spring-social-linkedin</artifactId>
-	        <version>${org.springframework.social.linkedin-version}</version>
-	    </dependency>
+			<groupId>org.springframework.social</groupId>
+			<artifactId>spring-social-linkedin</artifactId>
+			<version>${org.springframework.social.linkedin-version}</version>
+		</dependency>
 		<dependency>
-		    <groupId>org.springframework.social</groupId>
-		    <artifactId>spring-social-web</artifactId>
-	        <version>${org.springframework.social-version}</version>
-	    </dependency>
+			<groupId>org.springframework.social</groupId>
+			<artifactId>spring-social-web</artifactId>
+			<version>${org.springframework.social-version}</version>
+		</dependency>
 		<dependency>
-		    <groupId>org.springframework.social</groupId>
-		    <artifactId>spring-social-security</artifactId>
-	        <version>${org.springframework.social-version}</version>
-	    </dependency>
-	    
-	    <!-- Apache Http Client -->
- 	    <dependency>
-	    	<groupId>org.apache.httpcomponents</groupId>
-	    	<artifactId>httpclient</artifactId>
-	    	<version>4.2.5</version>
+			<groupId>org.springframework.social</groupId>
+			<artifactId>spring-social-security</artifactId>
+			<version>${org.springframework.social-version}</version>
+		</dependency>
+
+		<!-- Apache Http Client -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.2.5</version>
 			<exclusions>
 				<!-- Exclude Commons Logging in favor of SLF4j -->
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
 				</exclusion>
-			</exclusions>	    	
-	    </dependency>
- 	    
+			</exclusions>
+		</dependency>
+
 		<!-- JSR 303 with Hibernate Validator -->
 		<dependency>
 			<groupId>javax.validation</groupId>
@@ -128,7 +128,7 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>4.1.0.Final</version>
 		</dependency>
-	    
+
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -153,20 +153,20 @@
 			<version>1.2.16</version>
 			<scope>runtime</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>1.3.159</version>
-	    </dependency>
-	    
+		</dependency>
+
 		<!-- CGLIB, only required and used for @Configuration usage -->
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib-nodep</artifactId>
 			<version>2.2</version>
 		</dependency>
-		
+
 		<!-- Apache Tiles -->
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
@@ -178,14 +178,14 @@
 			<artifactId>tiles-el</artifactId>
 			<version>2.2.2</version>
 		</dependency>
-		
+
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
-								
+
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -209,7 +209,7 @@
 			<groupId>javax.servlet.jsp.jstl</groupId>
 			<artifactId>jstl-api</artifactId>
 			<version>1.2</version>
-		</dependency>		
+		</dependency>
 		<dependency>
 			<groupId>org.glassfish.web</groupId>
 			<artifactId>jstl-impl</artifactId>
@@ -220,29 +220,51 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.9</version>
 		</dependency>
+		<!-- Freemarker Dependency -->
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.20</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>3.2.4.RELEASE</version>
+		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>
 			<id>org.springframework.maven.release</id>
 			<name>Spring Maven Release Repository</name>
 			<url>http://repo.springsource.org/release</url>
-			<releases><enabled>true</enabled></releases>
-			<snapshots><enabled>false</enabled></snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
 		</repository>
 		<!-- For testing against latest Spring snapshots -->
 		<repository>
 			<id>org.springframework.maven.snapshot</id>
 			<name>Spring Maven Snapshot Repository</name>
 			<url>http://repo.springsource.org/snapshot</url>
-			<releases><enabled>false</enabled></releases>
-			<snapshots><enabled>true</enabled></snapshots>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
 		</repository>
 		<!-- For developing against latest Spring milestones -->
 		<repository>
 			<id>org.springframework.maven.milestone</id>
 			<name>Spring Maven Milestone Repository</name>
 			<url>http://repo.springsource.org/milestone</url>
-			<snapshots><enabled>false</enabled></snapshots>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
 		</repository>
 	</repositories>
 	<build>

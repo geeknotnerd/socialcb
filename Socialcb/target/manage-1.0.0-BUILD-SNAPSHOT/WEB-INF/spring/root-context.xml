@@ -1,23 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
-	<!-- <context:component-scan base-package="com.socialcb.controller" />  -->
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix">
-			<value>/WEB-INF/views/</value>
-		</property>
-		<property name="suffix">
-			<value>.jsp</value>
-		</property>
+	<!-- <context:component-scan base-package="com.socialcb.controller" /> -->
+	<!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<property name="prefix"> <value>/WEB-INF/views/</value> </property> <property 
+		name="suffix"> <value>.jsp</value> </property> </bean> -->
+	<!-- freemarker config -->
+	<bean id="freemarkerConfig"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath" value="/WEB-INF/views/freemarker/" />
+	</bean>
+
+	<!-- View resolvers can also be configured with ResourceBundles or XML files. 
+		If you need different view resolving based on Locale, you have to use the 
+		resource bundle resolver. -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<property name="cache" value="true" />
+		<property name="prefix" value="" />
+		<property name="suffix" value=".ftl" />
+
+		<!-- if you want to use the Spring FreeMarker macros, set this property 
+			to true -->
+		<property name="exposeSpringMacroHelpers" value="true" />
+
 	</bean>
 	<context:component-scan base-package="com.socialcb.controller" />
-	
+
+	<!-- <import resource="view-resolvers.xml" /> -->
+
 	<import resource="mvc.xml" />
 
 	<import resource="data.xml" />
@@ -27,5 +42,5 @@
 	<import resource="social.xml" />
 
 	<!-- <import resource="social-security.xml" /> -->
-	
+
 </beans>
