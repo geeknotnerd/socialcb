@@ -21,4 +21,13 @@
 
 	<!-- <import resource="social-security.xml" /> -->
 
+<!-- <bean id="Twitter"
+	class="org.springframework.social.twitter.api.Twitter" >
+</bean> -->
+
+
+<!-- <bean id="twitterTimelineController"
+	class="com.socialcb.controller.twitter.TwitterTimelineController">
+</bean> -->
+
 </beans>

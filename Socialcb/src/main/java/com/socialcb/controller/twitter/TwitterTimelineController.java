@@ -3,17 +3,24 @@
  */
 package com.socialcb.controller.twitter;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+
+import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.social.twitter.api.Tweet;
+import org.springframework.social.twitter.api.Twitter;
+import org.springframework.social.twitter.api.impl.TwitterTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.socialcb.model.UserConnection;
+import com.socialcb.service.UserConnectionService;
 
 /**
  * @author sagarpatil
@@ -25,47 +32,48 @@ public class TwitterTimelineController {
 	private static final Logger logger = LoggerFactory
 			.getLogger(TwitterTimelineController.class);
 
-	@RequestMapping(value = "/twitter/timeline/{timelineType}", method = RequestMethod.GET)
-	public @ResponseBody Temp showTimeline(
-			@PathVariable("timelineType") String timelineType, Model model) {
+	@Inject
+	private UserConnectionService userConnectionService;
 	
-		Temp tmp= new Temp();
-		tmp.setKey("KeyOne");
-		tmp.setValue("ValueOne");
-		tmp.getMyArrayList().add("One");
-		tmp.getMyArrayList().add("Two");
-		return tmp;
+	private final Twitter twitter;
+	
+	public TwitterTimelineController() {
+	 UserConnection userConnection= userConnectionService.getUserConnection();
+	 twitter = new TwitterTemplate(consumerKey, consumerSecret, accessToken, accessTokenSecret);
 	}
-	
-	
-	 private static class Temp{
-		private String key;
-		private String value;
-		private List<String> myArrayList = new ArrayList<String>();
+
+//	@RequestMapping(value = "/twitter/timeline/{timelineType}", method = RequestMethod.GET)
+//	public @ResponseBody
+//	Temp showTimeline(@PathVariable("timelineType") String timelineType,
+//			Model model) {
+//
+//		Temp tmp = new Temp();
+//		tmp.setKey("KeyOne");
+//		tmp.setValue("ValueOne");
+//		tmp.getMyArrayList().add("One");
+//		tmp.getMyArrayList().add("Two");
+//		return tmp;
+//	}
+
+	@RequestMapping(value = "/twitter/timeline/{timelineType}", method = RequestMethod.GET)
+	public @ResponseBody Collection<Tweet> showTimeline(
+			@PathVariable("timelineType") String timelineType, Model model) {
+		Collection<Tweet> timeLineTweets= null;
+		if (timelineType.equals("Home")) {
+			timeLineTweets = twitter.timelineOperations()
+					.getHomeTimeline();
+		} else if (timelineType.equals("User")) {
+			timeLineTweets = twitter.timelineOperations()
+					.getUserTimeline();
+		} else if (timelineType.equals("Mentions")) {
+			timeLineTweets = twitter.timelineOperations()
+					.getMentions();
+		} else if (timelineType.equals("Favorites")) {
+			timeLineTweets = twitter.timelineOperations()
+					.getFavorites();
+		}
 		
-		public String getKey() {
-			return key;
-		}
-		public void setKey(String key) {
-			this.key = key;
-		}
-		public String getValue() {
-			return value;
-		}
-		public void setValue(String value) {
-			this.value = value;
-		}
-		public List<String> getMyArrayList() {
-			return myArrayList;
-		}
-		public void setMyArrayList(List<String> myArrayList) {
-			this.myArrayList = myArrayList;
-		}
-		
-		 
-		
-		
-	 }
-	
+		return timeLineTweets;
+	}
 
 }
