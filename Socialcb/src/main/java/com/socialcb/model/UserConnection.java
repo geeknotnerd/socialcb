@@ -17,7 +17,7 @@ public class UserConnection {
 	private String imageUrl;
 	private long rank;
 	private String accessToken;
-	private String secrete;
+	private String secret;
 	/**
 	 * @return the userId
 	 */
@@ -117,14 +117,14 @@ public class UserConnection {
 	/**
 	 * @return the secrete
 	 */
-	public String getSecrete() {
-		return secrete;
+	public String getSecret() {
+		return secret;
 	}
 	/**
 	 * @param secrete the secrete to set
 	 */
-	public void setSecrete(String secrete) {
-		this.secrete = secrete;
+	public void setSecret(String secret) {
+		this.secret = secret;
 	}
 	
 	

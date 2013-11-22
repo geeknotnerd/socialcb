@@ -5,9 +5,18 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
- 
 
-  <context:component-scan base-package="com.socialcb.controller" />
+	<bean id="resource" class="org.springframework.core.io.ClassPathResource">
+		<constructor-arg name="path">
+			<value>/com/socialcb/config/application.properties</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="userConnectionService" class="com.socialcb.service.UserConnectionService" />
+	<bean id="userConnectionDao" class="com.socialcb.doaimpl.UserConnectionDao">
+	<constructor-arg name="template" ref="jdbcTemplate"/>
+	</bean>
+	<context:component-scan base-package="com.socialcb.controller" />
 
 	<import resource="view-resolvers.xml" />
 
@@ -21,13 +30,6 @@
 
 	<!-- <import resource="social-security.xml" /> -->
 
-<!-- <bean id="Twitter"
-	class="org.springframework.social.twitter.api.Twitter" >
-</bean> -->
 
-
-<!-- <bean id="twitterTimelineController"
-	class="com.socialcb.controller.twitter.TwitterTimelineController">
-</bean> -->
 
 </beans>
