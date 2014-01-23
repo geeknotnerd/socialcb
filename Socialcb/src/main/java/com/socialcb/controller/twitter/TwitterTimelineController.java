@@ -47,7 +47,7 @@ public class TwitterTimelineController {
 	@RequestMapping(value = "/twitter/timeline/{timelineType}", method = RequestMethod.GET)
 	public @ResponseBody
 	Collection<Tweet> showTimeline(@PathVariable("timelineType") String timelineType) throws IOException {
-
+ 
 		Resource resource = new ClassPathResource("application.properties");
 		Properties props = PropertiesLoaderUtils.loadProperties(resource);
 		String consumerKey = props.getProperty("twitter.consumerKey");
